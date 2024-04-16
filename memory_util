@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import psutil
+import pyfiglet 
+  
+result = pyfiglet.figlet_format("Abdallah Rabie") 
+print(result) 
+num_of_cores= psutil.cpu_count()
+print("Number of cores is:[",end=" ")
+for i in range(1,num_of_cores):
+    print("#",end="")
+print(" ] %d" % num_of_cores)
+battary=psutil.sensors_battery()
+print("\nbattary percentage is:[",end=" ")
+
+for i in range(1,int(battary.percent)):
+    print("#",end="")
+print(" ] {}%  ".format(battary.percent))
+ram=psutil.virtual_memory()
+print("\nTotal virual memory is: {}G".format(ram.total / pow(1024,3,None)))
+print("\nAvailable virual memory  is: {}G".format(ram.available / pow(1024,3,None)))
+print("\nPercent virual memory  used is: {}%".format(ram.percent/ pow(1024,3,None)))
+print("\nUsed virual memory  is: {}G".format(ram.used/ pow(1024,3,None)))
+print("\nFree virual memory  is: {}G".format(ram.free/ pow(1024,3,None)))
